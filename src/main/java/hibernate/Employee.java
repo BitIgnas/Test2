@@ -3,14 +3,17 @@ package hibernate;
 import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "employee")
-@Getter @Setter
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Employee {
+
+public class Employee implements Serializable {
 
     @Id
     @Column(name = "id")
@@ -19,6 +22,9 @@ public class Employee {
 
     @Column(name = "name", nullable = false)
     private String name;
+
+    @Column(name = "password")
+    private String password;
 
     @Column(name = "department")
     private String department;
